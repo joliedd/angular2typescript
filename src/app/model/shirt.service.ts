@@ -1,36 +1,19 @@
 import { Injectable } from '@angular/core';
-
-let shirts = [
-	{
-    id: 0,
-    price: 88,
-    picture: "https://unsplash.it/128/128",
-    colour: "brown",
-    size: "m",
-    name: "Southview Clarke",
-    quantity: 0
-  },
-  {
-    id: 1,
-    price: 63,
-    picture: "https://unsplash.it/128/128",
-    colour: "brown",
-    size: "m",
-    name: "Barronett Higgins"
-  },
-];
-
-    
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';  
+   
 @Injectable()
 export class ShirtService {
  
-	private shirts;   
+	constructor(private _http:Http) {}
+
+    getShirts(url:string) {
+        return this._http.get(url)
+            .map(data => {
+                data.json();
+                console.log("Data from web-service: ", data.json());
+                return data.json();
+        });
+    }   
     
-	constructor() {
-    	this.shirts = shirts;
-	}
- 
-	getShirts() {
-    	return this.shirts;
-	}    
  }
