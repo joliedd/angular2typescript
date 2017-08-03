@@ -1,0 +1,6 @@
+<table class="tftable">
+  <tr><th>ID</th><th>Price</th><th>Picture</th><th>Colour</th><th>Size</th><th>Name</th><th>Quantity</th>
+  <tr *ngFor="let shirt of shirts">
+	<td>{{shirt.id}}</td> <td>{{shirt.price}}</td> <td>{{shirt.picture}}</td> <td>{{shirt.colour}}</td><td>{{shirt.size}}</td><td>{{shirt.name}}</td><td>{{shirt.quantity}}</td>
+  </tr>
+</table>
