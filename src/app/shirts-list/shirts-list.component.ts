@@ -20,12 +20,7 @@ export class ShirtsListComponent implements OnInit {
         );
     }
 
-    ngOnInit() {
-        this.shirtService.getShirts(this.dataUrl).subscribe(
-            data => this.testResponse = data
-        );
-        console.log("Shirts from server: ", this.testResponse);
-        this.shirts = this.testResponse;
+    ngOnInit() {       
     }
     
 }
