@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShirtService } from '../model/shirt.service';
+import { ShirtService } from '../service/shirt.service';
 import { Shirt } from '../model/shirt';
 
 @Component({
@@ -15,9 +15,19 @@ export class ShirtsListComponent implements OnInit {
     testResponse: any;
 
     constructor(private shirtService: ShirtService) {
-      this.shirtService.getShirts(this.dataUrl).subscribe(
-            data => this.shirts = data
-        );
+    	try {
+ 				this.shirtService.getShirts(this.dataUrl).subscribe(
+           		data => this.shirts = data
+       		 );
+
+
+		}catch (e) {
+			console.log(e.name);                 // "TypeError"
+  			console.log(e instanceof TypeError); // true
+  			console.log(e.message);              // wrong type
+  			
+		}
+     
     }
 
     ngOnInit() {       

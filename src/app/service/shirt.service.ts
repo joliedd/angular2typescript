@@ -13,7 +13,12 @@ export class ShirtService {
                 data.json();
                 console.log("Data from web-service: ", data.json());
                 return data.json();
-        });
+        },
+      	(err) => {        	
+			console.log(err.name);     
+  			console.log(err.message); 
+		}
+      );
     }   
     
  }

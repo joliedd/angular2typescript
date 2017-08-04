@@ -1,9 +1,9 @@
 export class Shirt {
-    id;
-    price;
-    picture;
-    colour;
-    size;
-    name;
-    quantity;
+    id: number;
+    price: number;
+    picture: string;
+    colour: string;
+    size: number;
+    name: string;
+    quantity: number;
 }
